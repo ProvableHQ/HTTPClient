@@ -1,0 +1,88 @@
+[package]
+name = "provable-rest-client"
+version = "0.16.9"
+authors = [ "The Provable Team" ]
+description = "Client for querying the SnarkOS REST API"
+homepage = "https://provable.com"
+repository = "https://github.com/AleoHQ/RESTClient"
+keywords = [
+    "aleo",
+    "cryptography",
+    "blockchain",
+    "decentralized",
+    "zero-knowledge"
+]
+categories = [ "cryptography::cryptocurrencies" ]
+include = [ "Cargo.toml", "cannon", "README.md", "LICENSE.md" ]
+license = "GPL-3.0"
+edition = "2021"
+
+[lib]
+path = "lib.rs"
+
+[features]
+default = [ ]
+
+[dependencies.snarkvm]
+git = "https://github.com/AleoNet/snarkvm.git"
+rev = "d170a9f"
+
+[dependencies.anyhow]
+version = "1.0"
+
+[dependencies.clap]
+version = "4"
+features = [ "derive", "string" ]
+
+[dependencies.indexmap]
+version = "2.0.0"
+
+[dependencies.parking_lot]
+version = "0.12.1"
+
+[dependencies.rand]
+version = "0.8"
+default-features = false
+
+[dependencies.rayon]
+version = "1.7.0"
+
+[dependencies.reqwest]
+version = "0.11"
+
+[dependencies.tokio]
+version = "1.0"
+features = [ "macros", "rt-multi-thread"]
+
+[dependencies.tracing]
+version = "0.1.37"
+
+[dependencies.ureq]
+version = "2.9.1"
+
+[dev-dependencies.rusty-hook]
+version = "0.11.2"
+
+[dev-dependencies.tokio-test]
+version = "0.4.3"
+
+[dev-dependencies.tracing-subscriber]
+version = "0.3.18"
+features = [ "env-filter" ]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+incremental = true
+
+[profile.dev]
+opt-level = 2
+lto = "thin"
+incremental = true
+
+[profile.test]
+opt-level = 2
+lto = "thin"
+incremental = true
+debug = true
+debug-assertions = true
