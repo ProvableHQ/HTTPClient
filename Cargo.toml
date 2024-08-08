@@ -25,7 +25,7 @@ default = [ ]
 
 [dependencies.snarkvm]
 git = "https://github.com/AleoNet/snarkvm.git"
-rev = "3d8b912"
+rev = "be171ce"
 
 [dependencies.anyhow]
 version = "1.0"
