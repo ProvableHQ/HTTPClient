@@ -523,8 +523,8 @@ mod tests {
     fn test_blocking_health_check_registers_unhealthy() {
         // Initialize the Aleo REST client with two unresponsive endpoints.
         let client = AleoRESTClient::<MainnetV0, true>::from_targets(vec![
-            "http://localhost:3030".to_string(),
-            "http://localhost:3031".to_string(),
+            "http://localhost:53522".to_string(),
+            "http://localhost:53523".to_string(),
         ])
         .unwrap();
 
