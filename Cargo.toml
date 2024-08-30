@@ -20,9 +20,6 @@ edition = "2021"
 [lib]
 path = "lib.rs"
 
-[features]
-default = [ ]
-
 [dependencies.snarkvm]
 git = "https://github.com/AleoNet/snarkvm.git"
 rev = "5bb50a8"
@@ -86,3 +83,7 @@ lto = "thin"
 incremental = true
 debug = true
 debug-assertions = true
+
+[features]
+default = [ ]
+low_target = [ "snarkvm/test" ]
