@@ -22,7 +22,7 @@ path = "lib.rs"
 
 [dependencies.snarkvm]
 git = "https://github.com/AleoNet/snarkvm.git"
-rev = "5bb50a8"
+rev = "02994a1"
 
 [dependencies.anyhow]
 version = "1.0"
