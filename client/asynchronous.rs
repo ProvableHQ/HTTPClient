@@ -579,7 +579,7 @@ mod tests {
         // Get several blocks, ensure they deserialize, and the heights are sequential.
         let block = client.get_blocks(1_000_000, 1_000_004).await.unwrap();
         assert_eq!(block.len(), 4);
-        let mut start_height = *&block.first().unwrap().height();
+        let mut start_height = block.first().unwrap().height();
         block.iter().for_each(|block| {
             assert_eq!(block.height(), start_height);
             start_height += 1;
