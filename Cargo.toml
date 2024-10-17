@@ -21,8 +21,7 @@ edition = "2021"
 path = "lib.rs"
 
 [dependencies.snarkvm]
-git = "https://github.com/AleoNet/snarkvm.git"
-rev = "02994a1"
+version = "=1.0.0"
 
 [dependencies.anyhow]
 version = "1.0"

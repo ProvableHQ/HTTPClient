@@ -563,4 +563,26 @@ mod tests {
         // Ensure that there are no healthy targets.
         assert_eq!(healthy_targets.len(), 0);
     }
+
+    #[tokio::test]
+    async fn test_explorer_blocks_deserialize() {
+        // Instantiate a client against the Provable Explorer.
+        let client = AleoRESTClient::<MainnetV0, false>::from_targets(vec![
+            "https://api.explorer.provable.com/v1".to_string(),
+        ])
+        .unwrap();
+
+        // Get a block at height 1,000,000 and check the height matches.
+        let block = client.get_block(1_000_000).await.unwrap();
+        assert_eq!(block.height(), 1_000_000);
+
+        // Get several blocks, ensure they deserialize, and the heights are sequential.
+        let block = client.get_blocks(1_000_000, 1_000_004).await.unwrap();
+        assert_eq!(block.len(), 4);
+        let mut start_height = *&block.first().unwrap().height();
+        block.iter().for_each(|block| {
+            assert_eq!(block.height(), start_height);
+            start_height += 1;
+        });
+    }
 }
