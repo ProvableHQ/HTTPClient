@@ -584,5 +584,9 @@ mod tests {
             assert_eq!(block.height(), start_height);
             start_height += 1;
         });
+
+        // Get the latest block and check the height is greater than 1,000,000.
+        let block = client.latest_block().await.unwrap();
+        assert!(block.height() > 1_000_000);
     }
 }
