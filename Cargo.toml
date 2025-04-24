@@ -51,7 +51,7 @@ version = "1.0.128"
 features = ["arbitrary_precision"]
 
 [dependencies.tokio]
-version = "1.0"
+version = "1.38"
 features = [ "macros", "rt-multi-thread"]
 
 [dependencies.tracing]
